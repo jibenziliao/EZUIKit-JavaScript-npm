@@ -1,6 +1,6 @@
 {
-  "name": "ezuikit-js",
-  "version": "0.2.3",
+  "name": "ezuikit",
+  "version": "0.2.4",
   "description": "ezuikit javascript for npm",
   "main": "ezuikit.js",
   "scripts": {
@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hikvision-Ezviz/EZUIKit-JavaScript-npm.git"
+    "url": "git+https://github.com/jibenziliao/EZUIKit-JavaScript-npm.git"
   },
   "keywords": [
     "video",
     "ezuikit"
   ],
-  "author": "yujianbo",
+  "author": "jibenziliao",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Hikvision-Ezviz/EZUIKit-JavaScript-npm/issues"
+    "url": "https://github.com/jibenziliao/EZUIKit-JavaScript-npm/issues"
   },
-  "homepage": "https://github.com/Hikvision-Ezviz/EZUIKit-JavaScript-npm#readme"
+  "homepage": "https://github.com/jibenziliao/EZUIKit-JavaScript-npm#readme"
 }
