@@ -296,6 +296,7 @@
           controsDOM.setAttribute('class', 'contros');
           headerContainer.appendChild(controsDOM);
           domElement.insertBefore(headerContainer, iframe);
+          hideDeviceSerial();
 
           if (matchHeaderOpt().capturePictureModule) {
             // 截图
@@ -1206,6 +1207,14 @@
   }; // 播放相关API
 
 
+  /** 隐藏设备序列号 */
+  function hideDeviceSerial () {
+    var localDeviceSerial = document.getElementById('deviceSerial')
+    if (localDeviceSerial) {
+      localDeviceSerial.style.display = 'none'
+    }
+  }
+
   EZUIKitPlayer.prototype.play = function (data) {
     var id = 'EZUIKitPlayer-' + this.opt.id;
     var player = document.getElementById(id).contentWindow;
@@ -1234,6 +1243,7 @@
         if (playId == event.data.id && event.data.type === 'handleSuccess') {
           setTimeout(()=>{
             _this.opt.videoLoading = false;
+            hideDeviceSerial();
           },1000)
           resolve(event.data);
         }

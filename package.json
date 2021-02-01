@@ -1,7 +1,7 @@
 {
   "name": "ezuikit-wesine",
-  "version": "0.2.4",
-  "description": "ezuikit javascript for npm",
+  "version": "0.2.5",
+  "description": "海康ezuikit组件改造版本，移除部分console语句",
   "main": "ezuikit.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
