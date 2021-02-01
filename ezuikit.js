@@ -235,7 +235,7 @@
           var iframeUrl = domain + "/ezopen/h5/iframe?bSupporDoubleClickFull=0&url=" + _this.opt.url + "&autoplay=" + _this.opt.autoplay + "&audio=" + _this.opt.audio + "&accessToken=" + params.accessToken + "&templete=0" + "&id=" + id;
           var controlsValue = "";
           if(typeof params.controls !== 'undefined' && params.controls){
-            console.log("typeof" ,typeof params.controls)
+            // console.log("typeof" ,typeof params.controls)
             controlsValue = "play,voice,hd,fullScreen";
             if(params.controls.length > 0){
               controlsValue = params.controls.join(",");
@@ -309,7 +309,7 @@
             controsDOM.appendChild(capturePictureDOM);
           }
 
-          console.log("matchHeaderOpt().saveModule", matchHeaderOpt().saveModule);
+          // console.log("matchHeaderOpt().saveModule", matchHeaderOpt().saveModule);
 
           if (matchHeaderOpt().saveModule) {
             var startSaveDOM = document.createElement('span');
@@ -479,7 +479,7 @@
 
           if (_this.opt.plugin.indexOf('talk') !== -1 || matchFooterOpt().talkModule) {
             function apiSuccess(data) {
-              console.log("data", data);
+              // console.log("data", data);
 
               if (data.code == 200) {
                 var apiResult = data.data;
@@ -497,19 +497,19 @@
                   var talk = "talk://" + _this.opt.deviceSerial + ":0:" + _this.opt.channelNo + ":cas.ys7.com:6500";
                   _this.opt.talkLink = _this.opt.ttsUrl + "/" + talk;
                   _this.opt.stream = apiResult.stream;
-                  console.log("_this.opt", _this.opt); // 加载依赖
+                  // console.log("_this.opt", _this.opt); // 加载依赖
 
                   if (!_this.opt.isReliesReady) {
                     var adapeterJS = _this.opt.filePath + '/npm/js/adapeter.js';
                     var janusJS = _this.opt.filePath + '/npm/js/janus.js';
                     var ttsJS = _this.opt.filePath + '/npm/js/tts.js';
-                    console.log("加载jquery.js");
+                    // console.log("加载jquery.js");
                     addJs(adapeterJS, function () {
-                      console.log("加载adapeter.js");
+                      // console.log("加载adapeter.js");
                       addJs(janusJS, function () {
-                        console.log("加载janus.js");
+                        // console.log("加载janus.js");
                         addJs(ttsJS, function () {
-                          console.log("加载tts.js"); // 文件加载完毕;
+                          // console.log("加载tts.js"); // 文件加载完毕;
 
                           _this.opt.isReliesReady = true;
                         });
@@ -587,7 +587,7 @@
                     _this.play(_this.opt.url)
                   })
                   .catch((error)=>{
-                    console.log("error",error)
+                    // console.log("error",error)
                   })
                 }
                 //iframe.src = domain +"/ezopen/h5/iframe?url=" + _this.opt.url.replace('.hd.live', '.live') + "&autoplay=1&audio=" + _this.opt.audio + "&accessToken=" + _this.opt.accessToken + "&templete=" + 0;
@@ -663,7 +663,7 @@
               startTalkDOM.innerHTML = '<span title="对讲">' + '<svg t="1581930496966" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"' + '  p-id="1641" width="16" height="16">' + '  <path' + '    d="M715.648 647.872c-30.208-22.336-61.568 39.36-100.992 77.44-39.36 38.08-34.112 31.488-123.392-17.088S311.488 540.224 280 491.648C248.448 443.072 265.472 424.704 265.472 424.704s78.72-62.976 97.152-81.344c18.368-18.368 13.12-30.208 13.12-30.208l-128.64-190.144c-23.616-5.184-64.32 5.12-128.576 57.6C54.208 233.088 30.592 353.856 151.296 575.68c120.768 221.824 347.84 330.752 485.568 374.08 137.856 43.328 228.416-61.696 249.408-103.68 21.056-41.984 13.12-85.312 13.12-85.312S745.856 670.208 715.648 647.872z"' + '    p-id="1642" fill="#ffffff"></path>' + '  <path' + '    d="M715.328 64C580.992 64 472.192 172.864 472.192 307.2s108.8 243.2 243.136 243.2 243.2-108.864 243.2-243.2S849.6 64 715.328 64zM715.328 461.056c-84.992 0-153.856-68.864-153.856-153.856s68.864-153.856 153.856-153.856 153.856 68.928 153.856 153.856S800.32 461.056 715.328 461.056z"' + '    p-id="1643" fill="#ffffff"></path>' + '  <path' + '    d="M777.472 277.376c-18.176 0-32.96-14.784-32.96-33.024 0-8.448 3.136-16.064 8.32-21.888-11.52-5.12-24.128-8-37.568-8-51.2 0-92.672 41.472-92.672 92.736s41.472 92.736 92.672 92.736S808.064 358.4 808.064 307.2c0-13.696-3.072-26.688-8.384-38.4C793.728 274.112 786.048 277.376 777.472 277.376zM715.328 340.928c-18.624 0-33.664-15.104-33.664-33.728 0-18.624 15.04-33.728 33.664-33.728 18.688 0 33.728 15.104 33.728 33.728C749.056 325.824 734.016 340.928 715.328 340.928z"' + '    p-id="1644" fill="#ffffff"></path>' + ' </svg>' + ' </span>' + ' <span>开启对讲</span>';
 
               startTalkDOM.onclick = function () {
-                console.log("EZUIKit.state.countTimer", EZUIKit.state.countTimer);
+                // console.log("EZUIKit.state.countTimer", EZUIKit.state.countTimer);
 
                 if (EZUIKit.state.countTimer) {
                   window.layer.msg("语音设备正忙，请稍后重试");
@@ -671,11 +671,11 @@
                 }
 
                 countTime('add', 0);
-                console.log("开始对讲，关闭声音");
+                // console.log("开始对讲，关闭声音");
 
                 _this.closeSound(0);
 
-                console.log(_this.opt);
+                // console.log(_this.opt);
 
                 _this.startTalk();
 
@@ -687,7 +687,7 @@
               stopTalkDOM.innerHTML = '<span title="对讲">' + ' <svg t="1581930496966" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"' + '    p-id="1641" width="16" height="16">' + '    <path' + '      d="M715.648 647.872c-30.208-22.336-61.568 39.36-100.992 77.44-39.36 38.08-34.112 31.488-123.392-17.088S311.488 540.224 280 491.648C248.448 443.072 265.472 424.704 265.472 424.704s78.72-62.976 97.152-81.344c18.368-18.368 13.12-30.208 13.12-30.208l-128.64-190.144c-23.616-5.184-64.32 5.12-128.576 57.6C54.208 233.088 30.592 353.856 151.296 575.68c120.768 221.824 347.84 330.752 485.568 374.08 137.856 43.328 228.416-61.696 249.408-103.68 21.056-41.984 13.12-85.312 13.12-85.312S745.856 670.208 715.648 647.872z"' + '      p-id="1642" fill="#ff0000"></path>' + '    <path' + '      d="M715.328 64C580.992 64 472.192 172.864 472.192 307.2s108.8 243.2 243.136 243.2 243.2-108.864 243.2-243.2S849.6 64 715.328 64zM715.328 461.056c-84.992 0-153.856-68.864-153.856-153.856s68.864-153.856 153.856-153.856 153.856 68.928 153.856 153.856S800.32 461.056 715.328 461.056z"' + '      p-id="1643" fill="#ff0000"></path>' + '    <path' + '      d="M777.472 277.376c-18.176 0-32.96-14.784-32.96-33.024 0-8.448 3.136-16.064 8.32-21.888-11.52-5.12-24.128-8-37.568-8-51.2 0-92.672 41.472-92.672 92.736s41.472 92.736 92.672 92.736S808.064 358.4 808.064 307.2c0-13.696-3.072-26.688-8.384-38.4C793.728 274.112 786.048 277.376 777.472 277.376zM715.328 340.928c-18.624 0-33.664-15.104-33.664-33.728 0-18.624 15.04-33.728 33.664-33.728 18.688 0 33.728 15.104 33.728 33.728C749.056 325.824 734.016 340.928 715.328 340.928z"' + '      p-id="1644" fill="#ff0000"></path>' + '  </svg>' + ' </span>' + '<span>关闭对讲</span>';
 
               stopTalkDOM.onclick = function () {
-                console.log(_this.opt);
+                // console.log(_this.opt);
 
                 _this.stopTalk();
 
@@ -729,7 +729,7 @@
               footerContainer.appendChild(stopBroadcastDOM); // 召唤自定义语言
 
               document.getElementById("voice-custom").onclick = function () {
-                console.log("显示自定义语音");
+                // console.log("显示自定义语音");
                 startSpeakDOM.setAttribute('class', 'speak off');
               }; // 获取语音列表
 
@@ -738,7 +738,7 @@
 
               function fetchVoiceList(page) {
                 function apiSuccess(data) {
-                  console.log("data", data);
+                  // console.log("data", data);
 
                   if (data.code == 200) {
                     randerVoliceList(data.data, 5);
@@ -765,7 +765,7 @@
               }
 
               function randerVoliceList(data) {
-                console.log("renderVoliceList", data);
+                // console.log("renderVoliceList", data);
 
                 if (data && data.length > 0) {
                   for (var i = 0; i < data.length; i++) {
@@ -775,7 +775,7 @@
                     // $("#voice-list ul").append("<li class='voice-item' id='voice-item-" + i + "' data-time=" + (data[i]["duration"] || 20) + " data-url=" + data[i]["fileUrl"] + ">" + (data[i]["voiceName"].length > 10 ? (data[i]["voiceName"].substr(0, 10) + "...") : data[i]["voiceName"]) + "</li>");
 
                     voiceItem.onclick = function (e) {
-                      console.log("点击元素", e.target, e.target.dataset.url);
+                      // console.log("点击元素", e.target, e.target.dataset.url);
                       var voiceUrl = e.target.dataset.url;
                       var time = e.target.dataset.time;
                       playListOfVoice(voiceUrl, time);
@@ -791,10 +791,10 @@
               }
 
               function playListOfVoice(voiceUrl, time) {
-                console.log("播放语音", voiceUrl, time); // decoder && decoder.closeSound(0);
+                // console.log("播放语音", voiceUrl, time); // decoder && decoder.closeSound(0);
 
                 function apiSuccess(data) {
-                  console.log("data.data", data.data);
+                  // console.log("data.data", data.data);
 
                   if (data.code == 200) {
                     // $("#startBroadcast").show();
@@ -835,10 +835,10 @@
 
               document.getElementById("voice-list").onscroll = function (e) {
                 var sum = this.scrollHeight;
-                console.log("sum", sum, this.scrollTop, document.getElementById("voice-list").clientHeight);
+                // console.log("sum", sum, this.scrollTop, document.getElementById("voice-list").clientHeight);
 
                 if (sum <= this.scrollTop + this.clientHeight) {
-                  console.log("拖动到底，执行加载", EZUIKit.state.page);
+                  // console.log("拖动到底，执行加载", EZUIKit.state.page);
                   fetchVoiceList(++EZUIKit.state.page);
                 }
               }; // $("#voice-list").unbind("scroll").bind("scroll", function (e) {
@@ -867,7 +867,7 @@
                   return false;
                 }
 
-                console.log("按住说话");
+                // console.log("按住说话");
                 startSpeakDOM.setAttribute('class', 'speak off hide');
                 stopSpeakDOM.setAttribute('class', 'speak on'); // console.log("startRecording",startRecording);
                 // startRecording();
@@ -915,7 +915,7 @@
                 }
 
                 function voiceInit() {
-                  console.log("run init");
+                  // console.log("run init");
 
                   try {
                     // webkit shim
@@ -923,8 +923,8 @@
                     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
                     window.URL = window.URL || window.webkitURL;
                     audio_context = new AudioContext();
-                    console.log('Audio context set up.');
-                    console.log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+                    // console.log('Audio context set up.');
+                    // console.log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
                   } catch (e) {
                     console.log("err", e);
                     window.layer.msg('No web audio support in this browser!');
@@ -942,7 +942,7 @@
 
 
               document.getElementById('stopSpeak').onmouseup = function () {
-                console.log("松开发送");
+                // console.log("松开发送");
                 stopSpeakDOM.setAttribute('class', 'speak on hide');
                 stopSpeakFun();
 
@@ -964,7 +964,7 @@
                     recorder && recorder.stop(); // createAudioDom();
 
                     recorder && recorder.exportWAV(function (wav_file) {
-                      console.log("wav_file", wav_file);
+                      // console.log("wav_file", wav_file);
 
                       if (wav_file.size < 1000) {
                         window.layer.msg("录音失败，请重试"); // recodeTime = 0;
@@ -985,7 +985,7 @@
                       formdata.append("channelNo", _this.opt.channelNo); // padding = true;
 
                       function apiSuccess(data) {
-                        console.log("data.data", data.data);
+                        // console.log("data.data", data.data);
 
                         if (data.code == 200) {
                           // $("#startBroadcast").show();
@@ -1038,7 +1038,7 @@
                   } else {
                     clearInterval(EZUIKit.state.countTimer);
                     EZUIKit.state.countTimer = undefined;
-                    console.log("倒计时结束，开启声音"); // decoder.openSound(0);
+                    // console.log("倒计时结束，开启声音"); // decoder.openSound(0);
                   }
                 }, 1000);
               } else if (type === 'destory') {
@@ -1126,7 +1126,7 @@
 
     var _this = this;
     window.addEventListener("message", function (event) {
-      console.log("EZUIKitPlayer收到反馈", event);
+      // console.log("EZUIKitPlayer收到反馈", event);
       var origin = event.origin;
       var id = _this.opt.id;
       if (event.data.type) {
@@ -1500,8 +1500,8 @@
   };
 
   EZUIKitPlayer.prototype.startTalk = function () {
-    console.log("执行开始对讲");
-    console.log(this.opt);
+    // console.log("执行开始对讲");
+    // console.log(this.opt);
     var _this = this;
     EZUIKit.opt = this.opt;
     var apiSuccess = function(data) {
@@ -1533,7 +1533,7 @@
   };
 
   EZUIKitPlayer.prototype.stopTalk = function () {
-    console.log("执行结束对讲");
+    // console.log("执行结束对讲");
     window.stopTalk();
   };
   /**
